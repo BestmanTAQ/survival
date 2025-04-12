@@ -5,7 +5,6 @@ namespace Sempiternal.Survival.Scripts
     public class Spawner : MonoBehaviour
     {
         [SerializeField] private GameObject zombiePrefab;
-        [SerializeField] private Zombie zombie;
 
         private float timer = 0f;
 

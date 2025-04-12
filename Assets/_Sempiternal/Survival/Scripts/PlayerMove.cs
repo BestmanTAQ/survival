@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Sempiternal.Survival.Scripts
 {
@@ -14,6 +15,7 @@ namespace Sempiternal.Survival.Scripts
         [SerializeField] private GameObject weapon;
         [SerializeField] private PlayerMove playerMove;
         [SerializeField] private PlayerRotate playerRotate;
+        [SerializeField] private Slider slider;
         
         private float horizontalInput;
         private float verticalInput;
@@ -38,6 +40,8 @@ namespace Sempiternal.Survival.Scripts
             {
                 Die();
             }
+            
+            slider.value = hitPoint;
         }
 
         private void FixedUpdate()
