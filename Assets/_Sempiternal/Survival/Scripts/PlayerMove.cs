@@ -16,6 +16,7 @@ namespace Sempiternal.Survival.Scripts
         [SerializeField] private PlayerMove playerMove;
         [SerializeField] private PlayerRotate playerRotate;
         [SerializeField] private Slider slider;
+        [SerializeField] private GameObject deathScreen;
         
         private float horizontalInput;
         private float verticalInput;
@@ -63,6 +64,7 @@ namespace Sempiternal.Survival.Scripts
             rgb2D.linearVelocity = Vector2.zero;
             Destroy(weapon);
             playerMove.enabled = false;
+            deathScreen.SetActive(true);
         }
     }
 }
