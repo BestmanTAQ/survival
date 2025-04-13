@@ -10,11 +10,17 @@ namespace Sempiternal.Survival.Scripts
         [SerializeField] private EnemyMove enemyMove;
         [SerializeField] private BoxCollider2D boxCollider2D;
         [SerializeField] private Rigidbody2D rgb2D;
+        private Score score;
         private PlayerMove playerMove;
 
         private float HitPoint { get; set; } = 100f;
         
-        void OnTriggerEnter2D(Collider2D other)
+        private void Awake()
+        {
+            score = FindAnyObjectByType<Score>();
+        }
+        
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Bullet"))
             {
@@ -28,7 +34,7 @@ namespace Sempiternal.Survival.Scripts
             }
         }
 
-        void OnCollisionStay2D(Collision2D other)
+        private void OnCollisionStay2D(Collision2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
@@ -44,6 +50,7 @@ namespace Sempiternal.Survival.Scripts
             enemyMove.enabled = false;
             boxCollider2D.enabled = false;
             rgb2D.linearVelocity = Vector2.zero;
+            score.ChangeScore();
             Destroy(gameObject, 4f);
         }
     }
